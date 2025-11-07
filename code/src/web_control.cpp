@@ -69,8 +69,40 @@ void setup() {
     MDNS.begin(HOSTNAME);
 
     robot.init();
-    robot.loadCalibration();
-    //robot.setCalibration(servo_calibration);
+    // robot.loadCalibration();
+    int offsetLegs = 100;
+    int offsetLimbs = 10;
+    // int servo_calibration[8] = {
+    //     -35-offsetLimbs,
+    //     10+offsetLegs-10,
+    //     -50-offsetLegs,
+    //     20+offsetLegs,
+    //     -10+offsetLimbs,
+    //     10-offsetLegs-0,
+    //     15-offsetLimbs,
+    //     30+offsetLimbs
+    // };
+    int servo_calibration[8] = {
+        -10-offsetLimbs,
+        30+offsetLimbs,
+        -30-offsetLegs,
+        -70+offsetLegs,
+        -35+offsetLimbs,
+        20-offsetLimbs,
+        30+offsetLegs,
+        50-offsetLegs,
+    };
+
+    // board_pins[0] = SERVO_4_PIN;
+    // board_pins[1] = SERVO_6_PIN;
+    // board_pins[2] = SERVO_1_PIN;
+    // board_pins[3] = SERVO_2_PIN;
+    // board_pins[4] = SERVO_0_PIN;
+    // board_pins[5] = SERVO_7_PIN;
+    // board_pins[6] = SERVO_5_PIN;
+    // board_pins[7] = SERVO_3_PIN;
+
+    robot.setCalibration(servo_calibration);
     robot.home();
 
     server.on("/", handleRoot);
