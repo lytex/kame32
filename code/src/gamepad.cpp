@@ -79,7 +79,6 @@ void setup() {
     MDNS.begin(HOSTNAME);
     
     robot.init();
-    robot.loadCalibration();
     robot.home();
 
     server.on("/", handleRoot);

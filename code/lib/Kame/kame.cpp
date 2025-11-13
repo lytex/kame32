@@ -1,7 +1,6 @@
 #include "kame.h"
 
-
-void Kame::init(){
+Kame::Kame(){
     // Map between servos and board pins
     board_pins[0] = SERVO_0_PIN;
     board_pins[1] = SERVO_1_PIN;
@@ -12,9 +11,16 @@ void Kame::init(){
     board_pins[6] = SERVO_6_PIN;
     board_pins[7] = SERVO_7_PIN;
 
-    // Initialize servo calibration
+    // Reset servo calibration
     for(int i=0; i<8; i++){
         calibration[i] = 0;
+    }
+}
+
+
+void Kame::init(bool load_calibration){
+    if(load_calibration){
+        loadCalibration();
     }
 
     // Set reverse movement
@@ -28,7 +34,6 @@ void Kame::init(){
     }
     
     arm();
-    home();
 }
 
 
@@ -58,7 +63,6 @@ void Kame::saveCalibration(int new_calibration[8]){
 
 void Kame::arm(){
     _armed = true;
-    home();
 }
 
 void Kame::disarm(){

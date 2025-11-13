@@ -18,7 +18,8 @@
 
 class Kame{
 public:
-    void init();
+    Kame();
+    void init(bool load_calibration=true);
 
     void setCalibration(int calibration[8]);
     int* loadCalibration();
