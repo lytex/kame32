@@ -2,14 +2,14 @@
 
 Kame::Kame(){
     // Map between servos and board pins
-    board_pins[0] = SERVO_0_PIN;
-    board_pins[1] = SERVO_1_PIN;
-    board_pins[2] = SERVO_2_PIN;
-    board_pins[3] = SERVO_3_PIN;
-    board_pins[4] = SERVO_4_PIN;
-    board_pins[5] = SERVO_5_PIN;
-    board_pins[6] = SERVO_6_PIN;
-    board_pins[7] = SERVO_7_PIN;
+    board_pins[0] = SERVO_4_PIN;
+    board_pins[1] = SERVO_6_PIN;
+    board_pins[2] = SERVO_1_PIN;
+    board_pins[3] = SERVO_2_PIN;
+    board_pins[4] = SERVO_0_PIN;
+    board_pins[5] = SERVO_7_PIN;
+    board_pins[6] = SERVO_5_PIN;
+    board_pins[7] = SERVO_3_PIN;
 
     // Reset servo calibration
     for(int i=0; i<8; i++){

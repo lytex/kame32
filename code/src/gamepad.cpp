@@ -79,6 +79,29 @@ void setup() {
     MDNS.begin(HOSTNAME);
     
     robot.init();
+    int offsetLegs = -10;
+    int offsetLimbs = 20;
+    // int servo_calibration[8] = {
+    //     -35-offsetLimbs,
+    //     10+offsetLegs-10,
+    //     -50-offsetLegs,
+    //     20+offsetLegs,
+    //     -10+offsetLimbs,
+    //     10-offsetLegs-0,
+    //     15-offsetLimbs,
+    //     30+offsetLimbs
+    // };
+    int servo_calibration[8] = {
+        -10-offsetLimbs,
+        30+offsetLimbs,
+        -30-offsetLegs,
+        -10+offsetLegs,
+        -35+offsetLimbs,
+        20-offsetLimbs,
+        40+offsetLegs,
+        50-offsetLegs,
+    };
+    robot.setCalibration(servo_calibration);
     robot.home();
 
     server.on("/", handleRoot);
